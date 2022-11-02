@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<p>Submit your own post!</p>
+<form id="form">
+<input name="name" type="text">
+<input name="email" type="text">
+<input name="content" type="text">
+<button type="submit">Submit</button>
+</form> 
+<ul id="myList"></ul>
+<script>
+(function() {
+    fetch('/api/timeline_post', {
+        method: 'GET',
+    })
+    .then(res => res.json())
+    .then(data => {
+        // Do something
+        let list = document.getElementById("myList");
+        console.log(data["timeline_posts"])
+        data["timeline_posts"].forEach((item)=> {
+            let li = document.createElement("li");
+            li.innerText = "Name: " + item.name + ", Email: " + item.email + ", Content: " + item.content;
+            list.appendChild(li);
+        })
+    })
+
+
+    const form = document.getElementById('form');
+    form.addEventListener('submit', function(e) {
+        // Prevent default behavior
+        e.preventDefault();
+        // Create payload as new FormData object
+        const payload = new FormData(form);
+        // Post the payload using Fetch
+        fetch('/api/timeline_post', {
+            method: 'POST',
+            body: payload,
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            fetch('/api/timeline_post', {
+                method: 'GET',
+            })
+            .then(res => res.json())
+            .then(data => {
+                // Do something
+                let list = document.getElementById("myList");
+                list.innerHTML = ""
+                data["timeline_posts"].forEach((item)=> {
+                    let li = document.createElement("li");
+                    li.innerText = "Name: " + item.name + ", Email: " + item.email + ", Content: " + item.content;
+                    list.appendChild(li);
+                })
+            })
+
+
+        })
+    })
+})()
+</script>
+  
+</body>
+</html>
