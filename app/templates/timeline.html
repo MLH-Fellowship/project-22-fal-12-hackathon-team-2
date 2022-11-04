@@ -1,74 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta property="og:title" content="Personal Portfolio" />
-    <meta property="og:description" content="My Personal Portfolio" />
-    <meta property="og:url" content="{{ url }}" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-
-    <link lang="sass" rel="stylesheet" href="./static/styles/main.css" />
-    <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon" />
-    <title>{{ title }}</title>
-  </head>
-
-  <body>
-    <div class="semi-header">
-      <h1>Welcome to our Timeline!</h1>
-      <h3>Feel free to make a post below!</h3>
-    </div>
-
-    <hr style="width: 70%; text-align: center" />
-
-    <div class="timeline">
-      <form id="form">
-        <input name="name" type="text" placeholder="name" />
-        <input name="email" type="email" placeholder="email" />
-        <input name="content" type="text" placeholder="content" />
-        <button type="submit">Post</button>
-      </form>
-      {% for post in userPosts %}
-      <h2>{{ post.name }}</h2>
-      <h2>{{ post.email }}</h2>
-      <h5>{{post.created_at}}</h5>
-      <h3>{{ post.content }}</h3>
-      <hr style="width: 100%; text-align: center" />
-      {% endfor %}
-    </div>
-
-    <script>
-      const form = document.getElementById("form");
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const formData = new FormData(form);
-
-        const payload = new URLSearchParams(formData);
-
-        console.log(payload);
-
-        fetch("/api/timeline_post", {
-          method: "POST",
-          body: payload,
+<p>Submit your own post!</p>
+<form id="form">
+<input name="name" type="text">
+<input name="email" type="text">
+<input name="content" type="text">
+<button type="submit">Submit</button>
+</form> 
+<ul id="myList"></ul>
+<script>
+(function() {
+    fetch('/api/timeline_post', {
+        method: 'GET',
+    })
+    .then(res => res.json())
+    .then(data => {
+        // Do something
+        let list = document.getElementById("myList");
+        console.log(data["timeline_posts"])
+        data["timeline_posts"].forEach((item)=> {
+            let li = document.createElement("li");
+            li.innerText = "Name: " + item.name + ", Email: " + item.email + ", Content: " + item.content;
+            list.appendChild(li);
         })
-          .then((res) => res.json())
-          .then((data) => console.log(data))
-          .catch((err) => console.log(err))
-          .then(function () {
-            window.location.reload();
-          });
-      });
-    </script>
+    })
+
+
+    const form = document.getElementById('form');
+    form.addEventListener('submit', function(e) {
+        // Prevent default behavior
+        e.preventDefault();
+        // Create payload as new FormData object
+        const payload = new FormData(form);
+        // Post the payload using Fetch
+        fetch('/api/timeline_post', {
+            method: 'POST',
+            body: payload,
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            fetch('/api/timeline_post', {
+                method: 'GET',
+            })
+            .then(res => res.json())
+            .then(data => {
+                // Do something
+                let list = document.getElementById("myList");
+                list.innerHTML = ""
+                data["timeline_posts"].forEach((item)=> {
+                    let li = document.createElement("li");
+                    li.innerText = "Name: " + item.name + ", Email: " + item.email + ", Content: " + item.content;
+                    list.appendChild(li);
+                })
+            })
+
+
+        })
+    })
+})()
+</script>
   </body>
 </html>
