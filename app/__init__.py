@@ -80,11 +80,6 @@ def get_time_line_post():
         ]
     }
 
-@app.route('/timeline')
-def timeline():
-    timelinePosts = get_time_line_post()
-    return render_template('timeline.html', userPosts = timelinePosts['timeline_posts'], title="Timeline")
-
 @app.route('/yelp')
 def index():
     return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"))
