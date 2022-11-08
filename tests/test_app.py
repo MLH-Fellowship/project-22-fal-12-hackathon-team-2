@@ -30,7 +30,7 @@ class AppTestCase(unittest.TestCase):
         assert len(json["timeline_posts"]) == 0
 
         # TODO Add more tests relating to the /api/timeline_post GET and POST apis
-        response = self.client.post("/api/timeline_post", data={"name": "John Doe", "email": "john@example.com", "content": "Hello world, I'm John!"})
+        response = self.client.post("/api/timeline_post", data={"name": "John Doe", "email": "john@gmail.com", "content": "Hello world, I'm John!"})
         assert response.status_code == 200
         assert response.is_json
         json = response.get_json()
@@ -40,7 +40,7 @@ class AppTestCase(unittest.TestCase):
         assert response.status_code == 200
         assert response.is_json
         json = response.get_json()
-        assert json["timeline_posts"][0]["email"] == "john@example.com"
+        assert json["timeline_posts"][0]["email"] == "john@gmail.com"
         assert len(json["timeline_posts"]) == 1
 
         # TODO Add more tests relating to the timeline page
@@ -55,7 +55,6 @@ class AppTestCase(unittest.TestCase):
         response = self.client.post("/api/timeline_post", data={"email": "john@example.com", "content": "Hello world, I'm John!"})
         assert response.status_code == 400
         html = response.get_data(as_text=True)
-        print(html)
         assert "Invalid name" in html
 
         # POST request with empty content
