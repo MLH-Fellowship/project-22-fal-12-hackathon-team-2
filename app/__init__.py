@@ -101,3 +101,7 @@ def about(username):
         return render_template('about.html', data=data)
     else:
         return "<h1>Username did not match</h1>"
+
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', title="Timeline")
