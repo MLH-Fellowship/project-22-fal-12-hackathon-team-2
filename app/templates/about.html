@@ -35,9 +35,9 @@
     </script>
     <title>{{data.info.fullName}}</title>
 </head>
-<body>
+<body  onload="getPosts()">
     <div class="about__header">
-        <a href="/home">
+        <a href="/">
             <h1>{{data.info.fullName}}</h1>
         </a>
         
@@ -50,6 +50,8 @@
             <a href="#hobbies" class="about__headerButton">Hobbies</a>
            
             <a href="#map_section" class="about__headerButton">Map</a>
+
+            <a href="#timeline" class="about__headerButton">Timeline</a>
                 
         </div>  
     </div>
@@ -134,11 +136,102 @@
         <h1 class="work__title">Places</h1>
         <div id="map"></div>
     </div>
+    <!-- ------------------------------------------Timeline -->
+    <div class="work" id="timeline">
+        <h1 class="work__title">Timeline</h1>
+        
+        <div class="timeline__container">
+            <form class="timeline__form" id="form">
+                <label for="name">Name:</label>
+                <input class="timeline_input" name="name" type="text" placeholder="John Doe" required>
+                <label for="email">Email:</label>
+                <input class="timeline_input" name="email" type="text" placeholder="johndoe@gmail.com" required>
+                <label for="content">Content:</label>
+                <textarea rows="5" class="timeline_input" name="content" required> </textarea>
+                <button class="timeline_button" type="submit">Submit</button>
+            </form>
 
+            <div class="timeline__cards" id="timeline_posts">
+                    <div class="timeline_card">
+                        <div class="timeline_header">
+                            <div class="timeline_person">
+                                <h2 class="timeline_photo">P</h1>
+                                <div class="timeline_personInfo">
+                                    <h3>Paulin Alcoser</h3>
+                                    <p>paulin@gmail.com </p>
+                                </div>  
+                            </div>
+                            <p class="timeline_date"> 28/10/11 </p>
+                        </div>
+                        <p class="timeline_content">Today I had my second mock interview. Great learning experience!</p>   
+                    </div>
+                    <!-- <div class="timeline_card">
+                        <div class="timeline_header">
+                            <div class="timeline_person">
+                                <h2 class="timeline_photo">P</h1>
+                                <div class="timeline_personInfo">
+                                    <h3>Paulin Alcoser</h3>
+                                    <p>paulin@gmail.com </p>
+                                </div>  
+                            </div>
+                            <p class="timeline_date"> 28/10/11 </p>
+                        </div>
+                        <p class="timeline_content">Yesterday I had my second mock interview. Great learning experience!</p>   
+                    </div>
+                    <div class="timeline_card">
+                        <div class="timeline_header">
+                            <div class="timeline_person">
+                                <h2 class="timeline_photo">P</h1>
+                                <div class="timeline_personInfo">
+                                    <h3>Paulin Alcoser</h3>
+                                    <p>paulin@gmail.com </p>
+                                </div>  
+                            </div>
+                            <p class="timeline_date"> 28/10/11 </p>
+                        </div>
+                        <p class="timeline_content">Yesterday I had my second mock interview. Great learning experience!</p>   
+                    </div> -->
+                    <!-- <div class="timeline_card">
+                        <div class="timeline_header">
+                            <div class="timeline_person">
+                                <h2 class="timeline_photo">P</h1>
+                                <div class="timeline_personInfo">
+                                    <h3>Paulin Alcoser</h3>
+                                    <p>paulin@gmail.com </p>
+                                </div>  
+                            </div>
+                            <p class="timeline_date"> 28/10/11 </p>
+                        </div>
+                        <p class="timeline_content">Yesterday I had my second mock interview. Great learning experience!</p>   
+                    </div>
+                    <div class="timeline_card">
+                        <div class="timeline_header">
+                            <div class="timeline_person">
+                                <h2 class="timeline_photo">P</h1>
+                                <div class="timeline_personInfo">
+                                    <h3>Paulin Alcoser</h3>
+                                    <p>paulin@gmail.com </p>
+                                </div>  
+                            </div>
+                            <p class="timeline_date"> 28/10/11 </p>
+                        </div>
+                        <p class="timeline_content">Yesterday I had my second mock interview. Great learning experience!</p>   
+                    </div> -->
+            </div> 
+        </div>
+        
+        
+         
+        
+    </div>
+
+    <!-- end of _____________________________________________________Timeline -->
     
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClG7VvTcmhuUjRmCKVdTkJByd1i9zZnr4&callback=initMap&v=weekly"
       defer
     ></script>
+
+    <script src="../static/scripts/about.js" defer></script>
 </body>
 </html>

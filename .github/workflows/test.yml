@@ -1,0 +1,31 @@
+name: Run Tests #Name of Github Actions
+on: 
+  push: # Trigger on push on main branch
+    branches:
+      - main
+  pull_request: # Trigger on pull on main branch
+    branches:
+      - main
+jobs:
+  test: # Job calle run tests
+    runs-on: ubuntu-latest
+    name: Run Tests
+    env:
+      TESTING: true # setting up environment testing because we are testing
+    steps:
+      - name: Checkout Repository # Getting the reposotory
+        uses: actions/checkout@v2 # prebuilt action
+
+      - name: Setup Python # Getting python
+        uses: actions/setup-python@v4 # prebuilt action
+        with:
+          python-version: '3.6.8'  # Change to your desired Python version
+
+      - name: Setup Python Virtual Environment
+        run: python -m venv python3-virtualenv # Why is it good to install virtual environment evrytime 
+
+      - name: Install Dependencies
+        run: python3-virtualenv/bin/pip install -r requirements.txt
+        
+      - name: Run Tests
+        run: ./run_test.sh

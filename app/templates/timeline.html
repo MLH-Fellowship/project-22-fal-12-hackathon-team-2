@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="timeline" id="timeline">
+            <h1 class="timeline_title">Timeline</h1>
+            
+            <form class="timeline_form" id="form">
+                <label for="name">Name:</label>
+                <input class="timeline_input" name="name" type="text">
+                <label for="email">Email:</label>
+                <input class="timeline_input" name="email" type="text">
+                <label for="content">Content:</label>
+                <input class="timeline_input" name="content" type="text">
+                <button class="timeline_button" type="submit">Submit</button>
+            </form>
+            
+            <div class="timeline__cards" id="timeline_posts">
+                {% for post in data.timeline_posts: %}
+                    <div class="timeline_card">
+                        <h3>Name: {{post.name}}</h3>
+                        <p>Email: {{post.email}}</p>
+                        <p>Created at {{post.created_at}}</p>
+                        <p>Content: {{post.content}} </p>   
+                    </div>
+                {% endfor %} 
+            </div>  
+            
+        </div>
+        <script type="text/javascript">
+            /* Sending the formData object as payload using Fetch */
+            const form = document.getElementById('form');
+            const URL = '{{url}}'
+            form.addEventListener('submit', function(e) {
+                // Prevent default behavior:
+                e.preventDefault()
+                // Create payload as new FormData object:
+                console.log('submit')
+                const payload = new FormData(form);
+                // Post the payload using Fetch:
+                fetch(`/api/timeline_post`, {
+                    method: 'POST',
+                    body: payload,
+                })
+                .then(res => res.json())
+                .then((data) => {
+                    generatePost(data)
+                })
+                .catch( err => console.log(err))
+                
+            })
+
+            function generatePost(data){
+                const timeline = document.getElementById("timeline_posts")
+                const postCard = document.createElement('div');
+
+                const h3 = document.createElement('h3');
+                h3.textContent = data.name;
+                postCard.appendChild(h3);
+
+                const p_email = document.createElement('p');
+                p_email.textContent = data.email 
+                postCard.appendChild(p_email)
+
+                const p_created_at = document.createElement('p');
+                p_created_at.textContent = data.created_at
+                postCard.appendChild(p_created_at)
+
+                const p_content = document.createElement('p');
+                p_content.textContent = data.content
+                postCard.appendChild(p_content)
+                console.log(postCard)
+
+                timeline.prepend(postCard)  
+            }
+        </script>
+    </body>
+</html>

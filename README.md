@@ -1,34 +1,5 @@
 # Production Engineering - Week 1 - Portfolio Site
 
-Welcome to the MLH Fellowship! During Week 1, you'll be working with Flask to build a portfolio site. This site will be the foundation for activities we do in future weeks so spend time this week making it your own and reflect your personality!
-
-## Tasks
-
-Once you've got your portfolio downloaded and running using the instructions below, you should attempt to complete the following tasks.
-
-For each of these tasks, you should create an [Issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues) and work on them in a new [branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches). When the task has been completed, you should open a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) and get another fellow in your pod to give you feedback before merging it in.
-
-*Note: Make sure to include a link to the Issue you're working on inside of your Pull Request so your reviewer knows what you're working on!*
-
-### GitHub Tasks
-- [x] Create Issues for each task below
-- [x] Work on each task in a new branch
-- [x] Open a Pull Request when a task is finished to get feedback
-
-### Portfolio Tasks
-- [x] Add a photo of yourself to the website
-- [x] Add an "About youself" section to the website.
-- [x] Add your previous work experiences
-- [x] Add your hobbies (including images)
-- [x] Add your current/previous education
-- [x] Add a map of all the cool locations/countries you visited
-
-### Flask Tasks
-- [x] Get your Flask app running locally on your machine using the instructions below.
-- [x] Add a template for adding multiple work experiences/education/hobbies using [Jinja](https://jinja.palletsprojects.com/en/3.0.x/api/#basics)
-- [x] Create a new page to display hobbies.
-- [x] Add a menu bar that dynamically displays other pages in the app
-
 
 ## Getting Started
 
@@ -77,3 +48,28 @@ You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000`
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
+
+## Inspiration
+We took inspiration from two websites 1) Dapi.com 2) MLH website. We wanted to combine the simplicity and elegance of Dapi's website with the wholesome vibes of MLH's website. One of our biggest features is that our design emphasizes scrolling down this is because we believe that scrolling down really enhances the UX of a website
+## What it does
+It showcases the team members experiences, work, hobbies and places they've visited.
+## How we built it
+Paulin built the front end, and Alexis built the back end. We created a branch per feature, and whenever we move to a new feature, we create it out of the previous branch. Then we made a PR to main
+## Challenges we ran into
+It was hard to come up with arquitecture of the portfolio. For most of the project, we thought we were going to need a HTML files per team member. Fortunately, towards the end, we were able to figure out how to share same HTML and CSS files. 
+## Accomplishments that we're proud of
+- We believe the CSS was the best part of our project. We were able to add some animations, box shadows and sticky nav bar.  We invested a lot of time watching several videos from Kevin Powel 
+## What we learned
+- We learned that sometimes designing the architecture is as important as coding it. Many times we had to go back because our design hit a dead end
+- We learned how to learn new technologies like flask and jinja. I
+- This project would not have been possible without stack overflow. So we realized that is very important to contribute to the community
+ 
+## What's next for Alexis&Paulin Portfolio
+Regarding the code quality 
+- Changing the name of CSS selectors
+- Separating CSS in different files
+Regarding features
+- Adding mobile mode
+- Adding dark mode
+- Add spotify, maybe?
+- Add a gallery of photos

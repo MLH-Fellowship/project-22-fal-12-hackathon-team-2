@@ -1,9 +1,10 @@
 {
     "info":{
+        "urlName":"PaulinAlcoser",
         "fullName": "Paulin Alcoser",
         "name": "Paulin",
         "photo":"../static/img/PaulinProfile.jpg",
-        "about":"I am a Web Developer and a CS undergrad student, presently on my senior year at New York University Abu Dhabi. Although I am majoring in Computer Science, I gathered my first experiences building websites by taking classes in the Interactive Media Arts program of my university. This multidisciplinay background gave me a passion for the coding and storytelling components of web development. I enjoy building servers and interactive front-ends, as much as I enjoy designing websites as mediums for storytelling. I just finished a software engineer internship at the start up Dapi, where I used puppeteer to reverse engineer the front-end of different websites to create bots.",
+        "about":"Hi! I am Paulin, a current Google SRE fellow at Major League Hacking and a recent graduate from New York University with a bachelor's in Computer Science and a minor in Interactive Media. I am currently looking for new-grad SRE opportunities. A few things about me: - I am very enthusiastic about tech communities!- My favorite feeling in the world is when I am working on a project with friends and feel so engrossed in what I am building that the boundaries between working and having fun become blurry. - I have experience in Web Dev, Machine Learning, and SRE - I usually build websites with the MERN Stack + Typescript - I like test-driven development - I participated in the hackNY fellow program, which was one of my life's best experiences! - I like leetcode!!! - I am so excited about the MLH | Googler SRE fellowship- My favorite thing about humans is that we are so stupid about each other",
         "github": "https://github.com/paulin-alcoser",
         "linkedin": "https://www.linkedin.com/in/paulin-alcoser-chong-824597197/"
     },
