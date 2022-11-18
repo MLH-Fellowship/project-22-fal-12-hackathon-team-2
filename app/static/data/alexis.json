@@ -37,7 +37,7 @@
     "hobbies":[
         {
             "name": "Flute",
-            "description": "I have been classically trained in flute for 14 years, and continue to train and play in ensembles, as well as teach lessons",
+            "description": "I have been classically trained in flute for 14 years and piccolo for 6 years, and continue to train and play in ensembles for my university and the community. I also teach lessons.",
             "photo":"../static/img/flute.jpeg",
             "more":"disabled"
             
