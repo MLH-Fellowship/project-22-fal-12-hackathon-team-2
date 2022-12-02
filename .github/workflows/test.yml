@@ -8,7 +8,7 @@ on:
       - main
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     name: Run Tests
     env:
       TESTING: true
