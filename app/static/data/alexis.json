@@ -37,7 +37,7 @@
     "hobbies":[
         {
             "name": "Flute",
-            "description": "I have been classically trained in flute for 14 years, and continue to train and play in ensembles, as well as teach lessons",
+            "description": "I have been classically trained in flute for 14 years and piccolo for 6 years, and continue to train and play in ensembles for my university and the community. I also teach lessons.",
             "photo":"../static/img/flute.jpeg",
             "more":"disabled"
             
@@ -51,7 +51,7 @@
 
         {
             "name": "Running a study instagram",
-            "description": "My friends convinced me to start a study instagram to post my notes because, for some reason, they (and everyone else) really love my handwriting",
+            "description": "My friends convinced me to start a study instagram to post my notes because, for some reason, they (and everyone else) really love my handwriting, so I started one",
             "photo":"../static/img/studygram.jpeg",
             "more":"https://www.instagram.com/livin.l1ke.lex/"
         }
